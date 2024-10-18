@@ -1,0 +1,9 @@
+¹4
+ sys:=diff(x(t),t$2)+5*diff(x(t),t)+2*diff(y(t),t)+y(t)=0,
+3*diff(x(t),t$2)+5*x(t)+diff(y(t),t)+3*y(t)=0;
+ cond:=x(0)=1, D(x)(0)=0, (y)(0)=1;
+ dsolve({sys},{x(t),y(t)});
+¹5
+ restart; Order:=5:
+ dsolve({diff(y(x),x$2)+y(x)=y(x)^2,
+y(0)=2*a, D(y)(0)=a}, y(x), type=series)

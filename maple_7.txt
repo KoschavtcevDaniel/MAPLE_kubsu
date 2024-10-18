@@ -1,0 +1,28 @@
+#1
+restart; 
+f:=arctg(x+y)/(1-x*y);
+Diff(f,x$2)=simplify(diff(f,x$2));
+Diff(f,y$2)=simplify(diff(f,y$2));
+Diff(f,x,y)=diff(f,x,y);
+#2
+restart; readlib(extrema);
+f:=y^2+4*z^2-4*y*z-2*x*z-2*x*y;
+simplify(extrema(f,{2*x^2+3*y^2+6*z^2=1},{x,y,z}, 's'));
+convert(%,radical);
+convert(s,radical);
+subs(s[1],f);
+subs(s[2],f);
+subs(s[3],f);convert(%,radical);simplify(%);
+#3
+restart; with(simplex);
+f:=x+y+z:
+cond:={x+y<=2, z<=1}:
+maximize(f,cond,NONNEGATIVE);
+#4
+J:=Tripleint(ln(z-x-y)/((x-e)*(x+y-e)), y=0..e-x-1,x=0..e-1, z=e..x+y+e);
+J:=value(%);
+#5
+restart; with(linalg);
+f:=x*y-z^2; g:=simplify(grad(f, [x, y, z]));
+q:=vector([1,1]);e:=normalize(q);
+udq:=simplify(dotprod(g,e))
