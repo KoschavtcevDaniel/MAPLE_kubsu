@@ -1,0 +1,6 @@
+% 1
+x = 0:0.1:4;
+y = myfun(x);
+figure(1);
+plot(x, y);
+% 2
